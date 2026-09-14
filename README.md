@@ -99,3 +99,4 @@ Python + PySide6, `pynput` для глобального хука Alt и кол�
 
 MIT — бери, меняй, используй в компании. [LICENSE](LICENSE)
 "# quickdeck" 
+"# quickdeck" 
