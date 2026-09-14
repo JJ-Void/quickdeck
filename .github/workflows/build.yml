@@ -40,6 +40,18 @@ jobs:
         run: |
           python -c "import quickdeck.main; import quickdeck.arcwheel; import quickdeck.presets; print('imports ok')"
 
+      - name: Get version
+        shell: pwsh
+        run: |
+          if ("${{ github.ref }}" -like "refs/tags/v*") {
+            $version = "${{ github.ref_name }}" -replace "^v", ""
+          } else {
+            $version = "0.0.0"
+          }
+
+          Write-Host "Build version: $version"
+          "APP_VERSION=$version" >> $env:GITHUB_ENV
+
       - name: Build QuickDeck
         shell: pwsh
         run: |
@@ -121,7 +133,7 @@ jobs:
           name: QuickDeck-Windows
           if-no-files-found: error
           path: |
-            dist/*.exe
+            dist/**/*.exe
             dist/QuickDeck-portable.zip
 
       - name: Create GitHub Release
@@ -129,6 +141,6 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            dist/*.exe
+            dist/**/*.exe
             dist/QuickDeck-portable.zip
           generate_release_notes: true
