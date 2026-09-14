@@ -1,0 +1,67 @@
+name: build
+
+# Собирает программу и установщик на Windows-машине GitHub.
+# По тегу v* дополнительно создаёт релиз и прикладывает файлы.
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Установить зависимости
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt pyinstaller
+
+      - name: Проверить, что всё импортируется
+        env:
+          QT_QPA_PLATFORM: offscreen
+        run: python -c "import quickdeck.main, quickdeck.arcwheel, quickdeck.presets; print('imports ok')"
+
+      - name: Собрать приложение
+        run: |
+          pyinstaller --noconfirm --clean --onedir --windowed --noupx --name QuickDeck `
+            --icon "quickdeck/assets/quickdeck.ico" `
+            --version-file "version_info.txt" `
+            --add-data "quickdeck/assets;quickdeck/assets" `
+            --add-data "presets;presets" `
+            --hidden-import pynput.keyboard._win32 --hidden-import pynput.mouse._win32 `
+            --exclude-module PySide6.QtWebEngineCore --exclude-module PySide6.QtQuick `
+            --exclude-module PySide6.Qt3DCore --exclude-module PySide6.QtMultimedia `
+            --exclude-module tkinter `
+            run.py
+
+      - name: Собрать установщик (Inno Setup)
+        run: '& "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" installer\quickdeck.iss'
+
+      - name: Архив с портативной версией
+        run: |
+          Compress-Archive -Path dist\QuickDeck -DestinationPath dist\QuickDeck-portable.zip
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: QuickDeck-windows
+          path: |
+            dist/QuickDeck-Setup-*.exe
+            dist/QuickDeck-portable.zip
+
+      - name: Опубликовать релиз
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/QuickDeck-Setup-*.exe
+            dist/QuickDeck-portable.zip
+          generate_release_notes: true

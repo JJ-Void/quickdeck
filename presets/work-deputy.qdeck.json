@@ -1,0 +1,90 @@
+{
+  "kind": "quickdeck-preset",
+  "version": 1,
+  "name": "Зам. директора",
+  "description": "Объекты, договорные документы, письма подрядчикам и отчётность. Пути под себя поправить в настройках.",
+  "accent": "#3c6df0",
+  "groups": [
+    {
+      "id": "w-obj", "name": "Объекты", "icon": "hard-hat", "color": "#f0a04b",
+      "items": [
+        {"id": "wo1", "type": "open", "title": "Папка объектов", "icon": "folder", "color": "#f0a04b",
+         "target": "C:\\Работа\\Объекты", "note": "все текущие стройки"},
+        {"id": "wo2", "type": "open", "title": "Реестр объектов", "icon": "table-2", "color": "#4ade80",
+         "target": "C:\\Работа\\Реестр объектов.xlsx"},
+        {"id": "wo3", "type": "open", "title": "Исполнительная документация", "icon": "clipboard-list", "color": "#5b8cff",
+         "target": "C:\\Работа\\ИД"},
+        {"id": "wo4", "type": "open", "title": "Сметы", "icon": "calculator", "color": "#a78bfa",
+         "target": "C:\\Работа\\Сметы"},
+        {"id": "wo5", "type": "open", "title": "Чертежи и планы", "icon": "drafting-compass", "color": "#9aa4b2",
+         "target": "C:\\Работа\\Чертежи"}
+      ]
+    },
+    {
+      "id": "w-doc", "name": "Документы", "icon": "file-text", "color": "#3c6df0",
+      "items": [
+        {"id": "wd1", "type": "doc_copy", "title": "Договор подряда", "icon": "file-plus", "color": "#3c6df0",
+         "template_file": "C:\\Работа\\Шаблоны\\Договор подряда.docx",
+         "output_dir": "C:\\Работа\\Договоры",
+         "name_pattern": "Договор_{дата_файл}_{контрагент}", "open_after": true},
+        {"id": "wd2", "type": "doc_copy", "title": "Акт КС-2", "icon": "clipboard-check", "color": "#4ade80",
+         "template_file": "C:\\Работа\\Шаблоны\\КС-2.xlsx",
+         "output_dir": "C:\\Работа\\Акты",
+         "name_pattern": "КС-2_{объект}_{дата_файл}", "open_after": true},
+        {"id": "wd3", "type": "doc_copy", "title": "Счёт на оплату", "icon": "receipt", "color": "#f0a04b",
+         "template_file": "C:\\Работа\\Шаблоны\\Счёт.xlsx",
+         "output_dir": "C:\\Работа\\Счета",
+         "name_pattern": "Счёт_{номер}_{дата_файл}", "open_after": true},
+        {"id": "wd4", "type": "doc_copy", "title": "Доверенность", "icon": "stamp", "color": "#a78bfa",
+         "template_file": "C:\\Работа\\Шаблоны\\Доверенность.docx",
+         "output_dir": "C:\\Работа\\Доверенности",
+         "name_pattern": "Доверенность_{фамилия}_{дата_файл}", "open_after": true},
+        {"id": "wd5", "type": "open", "title": "Папка шаблонов", "icon": "files", "color": "#9aa4b2",
+         "target": "C:\\Работа\\Шаблоны"}
+      ]
+    },
+    {
+      "id": "w-msg", "name": "Письма", "icon": "mail", "color": "#4ade80",
+      "items": [
+        {"id": "wm1", "type": "copy", "title": "Реквизиты организации", "icon": "building-2", "color": "#3c6df0",
+         "text": "ООО «{организация}»\nИНН {инн} / КПП {кпп}\nЮр. адрес: {адрес}\nР/с {счёт}\nБанк: {банк}, БИК {бик}"},
+        {"id": "wm2", "type": "template", "title": "Запрос КП подрядчику", "icon": "send", "color": "#4ade80",
+         "text": "Здравствуйте, {имя}!\n\nПросим направить коммерческое предложение по объекту «{объект}».\nОбъём работ: {работы}.\nСрок предоставления КП — до {срок}.\n\nС уважением,\n{подпись}"},
+        {"id": "wm3", "type": "template", "title": "Напоминание об оплате", "icon": "alarm-clock", "color": "#f0a04b",
+         "text": "Здравствуйте, {имя}!\n\nНапоминаю о счёте № {номер} от {дата_счёта} на сумму {сумма} руб.\nСрок оплаты истёк {срок}. Прошу сообщить о статусе платежа.\n\nС уважением,\n{подпись}"},
+        {"id": "wm4", "type": "template", "title": "Вызов на приёмку", "icon": "calendar-check", "color": "#a78bfa",
+         "text": "Здравствуйте, {имя}!\n\nПриглашаем представителя на приёмку работ по объекту «{объект}»\n{дата_приёмки} в {время_приёмки}. Адрес: {адрес}.\nПри себе иметь доверенность.\n\nС уважением,\n{подпись}"},
+        {"id": "wm5", "type": "copy", "title": "Подпись в почту", "icon": "pen-tool", "color": "#9aa4b2",
+         "text": "С уважением,\n{должность} {организация}\n{фио}\nтел. {телефон}\n{почта}"}
+      ]
+    },
+    {
+      "id": "w-fin", "name": "Отчётность", "icon": "chart-column", "color": "#a78bfa",
+      "items": [
+        {"id": "wf1", "type": "open", "title": "Банк-клиент", "icon": "credit-card", "color": "#4ade80",
+         "target": "https://business.tbank.ru", "note": "заменить на свой банк"},
+        {"id": "wf2", "type": "open", "title": "Личный кабинет ФНС", "icon": "landmark", "color": "#3c6df0",
+         "target": "https://lkul.nalog.ru"},
+        {"id": "wf3", "type": "open", "title": "Госуслуги", "icon": "badge-check", "color": "#5b8cff",
+         "target": "https://www.gosuslugi.ru"},
+        {"id": "wf4", "type": "open", "title": "Финансы и платежи", "icon": "wallet", "color": "#f0a04b",
+         "target": "C:\\Работа\\Финансы"},
+        {"id": "wf5", "type": "open", "title": "Отчёты по объектам", "icon": "chart-line", "color": "#a78bfa",
+         "target": "C:\\Работа\\Отчёты"}
+      ]
+    },
+    {
+      "id": "w-team", "name": "Люди", "icon": "users", "color": "#ff6b7a",
+      "items": [
+        {"id": "wt1", "type": "open", "title": "Контакты подрядчиков", "icon": "book", "color": "#ff6b7a",
+         "target": "C:\\Работа\\Контакты.xlsx"},
+        {"id": "wt2", "type": "template", "title": "Задача сотруднику", "icon": "list-checks", "color": "#4ade80",
+         "text": "{имя}, задача по объекту «{объект}»:\n\n{задача}\n\nСрок — {срок}. По готовности отпишись."},
+        {"id": "wt3", "type": "open", "title": "Рабочий чат", "icon": "message-square", "color": "#5b8cff",
+         "target": "https://web.telegram.org"},
+        {"id": "wt4", "type": "open", "title": "Табель и графики", "icon": "calendar", "color": "#9aa4b2",
+         "target": "C:\\Работа\\Табель.xlsx"}
+      ]
+    }
+  ]
+}

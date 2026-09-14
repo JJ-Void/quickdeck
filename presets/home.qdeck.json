@@ -1,0 +1,78 @@
+{
+  "kind": "quickdeck-preset",
+  "version": 1,
+  "name": "Дом",
+  "description": "Развлечения, соцсети, музыка и системные папки для домашнего компьютера",
+  "accent": "#7c5cff",
+  "groups": [
+    {
+      "id": "p-games", "name": "Игры", "icon": "rocket", "color": "#ff6b7a",
+      "items": [
+        {"id": "pg1", "type": "open", "title": "Dota 2", "icon": "target", "color": "#ff6b7a",
+         "target": "steam://rungameid/570", "note": "запуск через Steam"},
+        {"id": "pg2", "type": "open", "title": "CS2", "icon": "target", "color": "#f0a04b",
+         "target": "steam://rungameid/730"},
+        {"id": "pg3", "type": "open", "title": "Библиотека Steam", "icon": "layers", "color": "#5b8cff",
+         "target": "steam://open/games"},
+        {"id": "pg4", "type": "open", "title": "Друзья в Steam", "icon": "users", "color": "#4ade80",
+         "target": "steam://open/friends"},
+        {"id": "pg5", "type": "open", "title": "Discord", "icon": "headphones", "color": "#7c5cff",
+         "target": "https://discord.com/app"}
+      ]
+    },
+    {
+      "id": "p-video", "name": "Видео", "icon": "play", "color": "#ff6b7a",
+      "items": [
+        {"id": "pv1", "type": "open", "title": "YouTube", "icon": "play", "color": "#ff6b7a",
+         "target": "https://www.youtube.com"},
+        {"id": "pv2", "type": "open", "title": "Подписки", "icon": "bell", "color": "#ff6b7a",
+         "target": "https://www.youtube.com/feed/subscriptions"},
+        {"id": "pv3", "type": "open", "title": "Twitch", "icon": "video", "color": "#a78bfa",
+         "target": "https://www.twitch.tv"},
+        {"id": "pv4", "type": "open", "title": "Кинопоиск", "icon": "film", "color": "#f0a04b",
+         "target": "https://www.kinopoisk.ru"},
+        {"id": "pv5", "type": "open", "title": "Смотреть позже", "icon": "bookmark", "color": "#5b8cff",
+         "target": "https://www.youtube.com/playlist?list=WL"}
+      ]
+    },
+    {
+      "id": "p-social", "name": "Общение", "icon": "message-square", "color": "#5b8cff",
+      "items": [
+        {"id": "ps1", "type": "open", "title": "Telegram", "icon": "send", "color": "#5b8cff",
+         "target": "https://web.telegram.org"},
+        {"id": "ps2", "type": "open", "title": "ВКонтакте", "icon": "users", "color": "#5b8cff",
+         "target": "https://vk.com"},
+        {"id": "ps3", "type": "open", "title": "WhatsApp", "icon": "message-square", "color": "#4ade80",
+         "target": "https://web.whatsapp.com"},
+        {"id": "ps4", "type": "open", "title": "Почта", "icon": "mail", "color": "#f0a04b",
+         "target": "https://mail.google.com"}
+      ]
+    },
+    {
+      "id": "p-music", "name": "Музыка", "icon": "music", "color": "#4ade80",
+      "items": [
+        {"id": "pm1", "type": "open", "title": "Яндекс Музыка", "icon": "music", "color": "#f0a04b",
+         "target": "https://music.yandex.ru"},
+        {"id": "pm2", "type": "open", "title": "Spotify", "icon": "headphones", "color": "#4ade80",
+         "target": "https://open.spotify.com"},
+        {"id": "pm3", "type": "open", "title": "YouTube Music", "icon": "play", "color": "#ff6b7a",
+         "target": "https://music.youtube.com"}
+      ]
+    },
+    {
+      "id": "p-sys", "name": "Компьютер", "icon": "monitor", "color": "#9aa4b2",
+      "items": [
+        {"id": "py1", "type": "open", "title": "Загрузки", "icon": "download", "color": "#5b8cff",
+         "target": "%USERPROFILE%\\Downloads"},
+        {"id": "py2", "type": "open", "title": "Рабочий стол", "icon": "monitor", "color": "#9aa4b2",
+         "target": "%USERPROFILE%\\Desktop"},
+        {"id": "py3", "type": "open", "title": "Скриншоты", "icon": "camera", "color": "#a78bfa",
+         "target": "%USERPROFILE%\\Pictures\\Screenshots"},
+        {"id": "py4", "type": "open", "title": "Диспетчер задач", "icon": "cpu", "color": "#ff6b7a",
+         "target": "taskmgr.exe"},
+        {"id": "py5", "type": "open", "title": "Параметры Windows", "icon": "settings", "color": "#9aa4b2",
+         "target": "ms-settings:"}
+      ]
+    }
+  ]
+}

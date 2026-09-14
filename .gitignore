@@ -1,0 +1,18 @@
+# сборка
+build/
+dist/
+share/
+*.spec
+__pycache__/
+*.py[cod]
+
+# личные настройки пользователя
+quickdeck.json
+quickdeck.json.broken
+*.qdeck.json.tmp
+
+# служебное
+.venv/
+.vscode/
+.idea/
+*.log
