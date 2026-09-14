@@ -3,7 +3,7 @@
 ; На GitHub Actions Inno Setup уже установлен, ставить локально ничего не нужно.
 
 #define AppName      "QuickDeck"
-#define AppVersion   "1.0.0"
+#define AppVersion   GetEnv("APP_VERSION")
 #define AppPublisher "QuickDeck"
 #define AppURL       "https://github.com/JJ-Void/quickdeck"
 #define AppExe       "QuickDeck.exe"
